@@ -1,0 +1,44 @@
+{
+  "name": "reassemble-string",
+  "version": "0.0.0",
+  "description": "My slick module",
+  "license": "MIT",
+  "repository": "stoeffel/reassemble-string",
+  "author": {
+    "name": "Christoph Hermann",
+    "email": "christoph.hermann@kaba.com",
+    "url": "schtoeffel.ch"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "develop": "nodangel --watch module --watch tests --exec 'npm --silent test'",
+    "istanbul": "istanbul cover ./node_modules/mocha/bin/_mocha  -- -R nyan --report lcov --compilers js:babel/register --ui qunit ./tests",
+    "mocha": "mocha --compilers js:babel/register --ui qunit ./tests",
+    "compile": "cd ./module; babel --loose=all ./*.js --out-dir ../",
+    "clean": "rm *.js",
+    "coverage": "npm run compile; npm run istanbul; npm run clean",
+    "coveralls": "npm run compile && npm run istanbul  && (cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true) && npm run clean",
+    "test": "npm run coveralls",
+    "prepublish": "npm run compile"
+  },
+  "files": [
+    "/*.js",
+    "/module/",
+    "/license",
+    "/readme.md"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^5.1.10",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.13",
+    "mocha": "^2.2.4",
+    "mocha-lcov-reporter": "0.0.2",
+    "nodangel": "1.3.8"
+  }
+}

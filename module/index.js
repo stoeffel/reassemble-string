@@ -7,7 +7,7 @@ const isString = str => typeof str !== 'string';
 
 const reassembleString = (combine, str) =>
 	isString(str) ?
-	  throwTypeError(str):
+		throwTypeError(str):
 		clean(str)
 			.replace(REGEX, sub => combine(firstChar(sub), lastChar(sub)));
 

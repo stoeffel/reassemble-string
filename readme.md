@@ -28,7 +28,7 @@ camelize('hello.world');   // => "helloWorld"
 camelize('hello - world'); // => "helloWorld"
 camelize('hello + world'); // => "hello + world"
 dasherize('hello world'); // => "hello-world"
-dasherize('helloWorld'); // => "hello-world"
+dasherize('helloWorld'); // => "hello-World"
 ```
 
 

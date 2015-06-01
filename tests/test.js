@@ -3,8 +3,8 @@ import reassembleString from '../';
 
 test('#reassembleString', () => {
   const camelize = reassembleString((a, b) => a + b.toUpperCase());
-  const dasherize = reassembleString((a, b) => `${a}-${b.toLowerCase()}`);
-	const pipify = reassembleString((a, b) => a + '|' + b);
+  const dasherize = reassembleString((a, b) => `${a}-${b}`);
+	const pipify = reassembleString((a, b) => `${a}|${b}`);
 
   equal(camelize(''), '');
   equal(camelize('  '), '');
@@ -24,14 +24,14 @@ test('#reassembleString', () => {
   equal(dasherize('helloWorld'), 'hello-world');
   equal(dasherize('hello  world'), 'hello-world');
 
-  equal(reassembleString((a, b) => `${a}*${b}`, 'helloWorld'), 'hello*World');
+  equal(reassembleString((a, b) => `${a}*${b}`, 'helloWorld'), 'hello*world');
 
 
-  equal(pipify('hello World'), 'hello|World');
-  equal(pipify('hello-World'), 'hello|World');
-  equal(pipify('hello_World'), 'hello|World');
-  equal(pipify('hello.World'), 'hello|World');
-  equal(pipify('helloWorld'), 'hello|World');
+  equal(pipify('hello World'), 'hello|world');
+  equal(pipify('hello-World'), 'hello|world');
+  equal(pipify('hello_World'), 'hello|world');
+  equal(pipify('hello.World'), 'hello|world');
+  equal(pipify('helloWorld'), 'hello|world');
 
   throws(camelize.bind(null, undefined), TypeError);
   throws(camelize.bind(null, 1), TypeError);

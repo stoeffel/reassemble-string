@@ -28,7 +28,7 @@ camelize('hello.world');   // => "helloWorld"
 camelize('hello - world'); // => "helloWorld"
 camelize('hello + world'); // => "hello + world"
 dasherize('hello world'); // => "hello-world"
-dasherize('helloWorld'); // => "hello-World"
+dasherize('helloWorld'); // => "hello-world"
 ```
 
 
@@ -43,7 +43,7 @@ dasherize('helloWorld'); // => "hello-World"
 Type: `function(a, b)`
 
 `a` is the last character of the previous word.
-`b` is the first character of the next word.
+`b` is the first character of the next word lowercased.
 
 You should return a string.
 

@@ -9,7 +9,7 @@ const reassembleString = (combine, str) =>
 	isString(str) ?
 		throwTypeError(str):
 		clean(str)
-			.replace(REGEX, sub => combine(firstChar(sub), lastChar(sub)));
+			.replace(REGEX, sub => combine(firstChar(sub), lastChar(sub).toLowerCase()));
 
 export default (combine, str) =>
 	!str ?
